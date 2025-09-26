@@ -3,6 +3,14 @@
 #include<cmath>
 using namespace std;
 
+// global variables, consts
+const float atomic_weight_c= 12.0;
+const float molecular_weight_co2 = 44.0;
+const float molecular_weight_o2 = 32.0;
+const float co2_annual = 10.0;
+const float c_annual = 2.73;
+
+// plant leaf area calculation
 float leaf_area(float length=0.0, float width=0.0, float k=0.0){
     // length width and correction factor 
     if ((length > 0.0) && (width > 0.0) && (k>0.0)){
@@ -19,8 +27,24 @@ float leaf_area(float length=0.0, float width=0.0, float k=0.0){
     else {
         return 0.0;
     }
-
 }
+
+// estimate net annual carbon sequestration
+float carbon_sequestration(){
+    return (co2_annual * (atomic_weight_c/molecular_weight_co2));
+} 
+
+// net annual oxygen production
+float net_annual_oxygen_production(){
+    return (c_annual * (molecular_weight_o2/atomic_weight_c));
+} 
+
+// daily oxygen production
+float daily_oxygen_production(){
+    return (c_annual * (molecular_weight_o2/atomic_weight_c))/365.0;
+}
+
+
 int main(){
     float l, w, k, area;
     cout<< "enter leaf length (cm): "; cin>>l;
