@@ -58,5 +58,9 @@ int main(){
         cout<< "invalid inputs!";
     }
     
+    cout << "1. Estimated Annual CO2 Absorption (Assumed): " << co2_annual << " kg/year" << endl;
+    cout << "2. Net Annual Carbon (C) Stored: " << carbon_sequestration() << " kg/year" << endl;
+    cout << "3. Net Annual Oxygen (O2) Produced: " << net_annual_oxygen_production() << " kg/year" << endl;
+    cout << "4. Net Daily Oxygen (O2) Produced: " << daily_oxygen_production() << " kg/day" << endl;
     return 0;
 }
